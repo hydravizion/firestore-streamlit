@@ -1,8 +1,11 @@
 import streamlit as st
-
+from google.oauth2 import service_account
 from google.cloud import firestore
-
-db = firestore.Client.from_service_account_json("firekey.json")
+import json
+key_dict = json.loads(st.secrets["textkey"])
+creds = service_account.Credentials.from_service_account_info(key_dict)
+db = firestore.Client(credentials=creds, project="streamlit-hydra")
+# db = firestore.Client.from_service_account_json("firekey.json")
 # doc_ref = db.collection('users').document('alovelace')
 # doc_ref.set({
 #     'first': 'Ada',
