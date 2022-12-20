@@ -13,6 +13,7 @@ db = firestore.Client(credentials=creds, project="streamlit-hydra")
 #     'born': 1815
 # })
 
+st.info("My portfolio is still in development, TQ for visitting :)")
 # Then query to list all users
 my_details_ref = db.collection('my-details') #.document("private-info")
 name = ""
